@@ -179,21 +179,37 @@
         </div>
         <hr>
         <!--Bootstrap Form-->
-        <div id="contact" class="container-fluid">
+        <div id="contact" class="container">
             <h2>Contact Us</h2>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Name</label>
-                <input type="text" aria-label="Имя" class="form-control" placeholder="Name">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Email</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-            </div>
-            <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-        </div>
+            <form id="myForm">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>    
+          </div>
+          <script>
+            //Form validation script 
+            const form = document.getElementById('myForm');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+          
+            form.addEventListener('submit', function (event) {
+              if (nameInput.value.trim() === '' || emailInput.value.trim() === '') {
+                event.preventDefault(); 
+                alert('Name and Email are required.'); 
+              }
+            });
+          </script> 
     </main>
     <!--Footer-->
     <footer>
